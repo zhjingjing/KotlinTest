@@ -1,14 +1,18 @@
 package com.zh.kotlin
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import com.zh.kotlin.launchmode.FirstActivity
 
 class MainActivity : AppCompatActivity() {
     private val tag = "MainActivity"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        startActivity(Intent(this, FirstActivity::class.java))
         init()
 
 
