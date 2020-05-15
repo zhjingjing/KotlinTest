@@ -1,19 +1,22 @@
 package com.zh.kotlin
 
-import android.support.v7.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.util.Log
-import com.zh.kotlin.recycler.RecyclerActivity
+import com.zh.kotlin.recycler.chat.ChatActivity
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     private val tag = "MainActivity"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        RecyclerActivity.launch(this)
         init()
 
-
+        btn_chat.setOnClickListener {
+            startActivity(Intent(this, ChatActivity::class.java))
+        }
         val list1 = listOf(1, 1, 1, null)
 
         for (i in list1) {
