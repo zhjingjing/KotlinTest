@@ -5,5 +5,6 @@
 具体请查看：
 
 [Kotlin基础篇（一）](https://blog.csdn.net/qq_23025319/article/details/105968448)
+[Kotlin基础篇（二）-作用域函数](https://blog.csdn.net/qq_23025319/article/details/106091232)
 
 
