@@ -1,7 +1,7 @@
 package com.zh.kotlin.launchmode
 
 import android.app.Activity
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import com.zh.kotlin.R

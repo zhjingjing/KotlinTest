@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<string name="app_name">Kotlin</string>
+	<string name="title_activity_login">masuk</string>
+	<string name="prompt_email">email</string>
+	<string name="prompt_password">kata sandi (opsional)</string>
+	<string name="action_sign_in">Masuk atau daftar</string>
+	<string name="action_sign_in_short">masuk</string>
+	<string name="error_invalid_email">alamat email ini tidak valid</string>
+	<string name="error_invalid_password">sandi ini terlalu pendek</string>
+	<string name="error_incorrect_password">password ini tidak benar</string>
+	<string name="error_field_required">kolom ini wajib diisi</string>
+	<string name="permission_rationale">"Kontak izin yang diperlukan untuk menyediakan penyelesaian email."</string>
+
+</resources>

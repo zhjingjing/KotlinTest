@@ -2,8 +2,10 @@ package com.zh.kotlin
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.util.Log
+import com.zh.kotlin.fragment.FragmentActivity
+import com.zh.kotlin.imageload.ImageActivity
 import com.zh.kotlin.recycler.chat.ChatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -17,6 +19,13 @@ class MainActivity : AppCompatActivity() {
         btn_chat.setOnClickListener {
             startActivity(Intent(this, ChatActivity::class.java))
         }
+
+        btn_fragment.setOnClickListener {
+            FragmentActivity.launch(this)
+        }
+
+        btn_img.setOnClickListener { ImageActivity.launch(this) }
+
         val list1 = listOf(1, 1, 1, null)
 
         for (i in list1) {

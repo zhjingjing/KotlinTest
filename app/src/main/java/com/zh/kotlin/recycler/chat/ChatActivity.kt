@@ -1,9 +1,9 @@
 package com.zh.kotlin.recycler.chat
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.DividerItemDecoration
-import android.support.v7.widget.LinearLayoutManager
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
 import android.util.Log
 import com.zh.kotlin.R
 import kotlinx.android.synthetic.main.activity_chat.*
@@ -17,8 +17,14 @@ class ChatActivity : AppCompatActivity() {
 
         list = arrayListOf()
         chatAdapter = ChatAdapter(this, list!!)
-        recycler_chat.layoutManager = LinearLayoutManager(this)
-        recycler_chat.addItemDecoration(DividerItemDecoration(this, LinearLayoutManager.VERTICAL))
+        recycler_chat.layoutManager =
+            androidx.recyclerview.widget.LinearLayoutManager(this)
+        recycler_chat.addItemDecoration(
+            androidx.recyclerview.widget.DividerItemDecoration(
+                this,
+                androidx.recyclerview.widget.LinearLayoutManager.VERTICAL
+            )
+        )
         recycler_chat.adapter = chatAdapter
         btn_send.setOnClickListener {
             val msg = edit_msg.text.toString()

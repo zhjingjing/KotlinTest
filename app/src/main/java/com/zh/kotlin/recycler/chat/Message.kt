@@ -6,7 +6,7 @@ package com.zh.kotlin.recycler.chat
  */
 class Message(val id: Int, val msg: String, val type: Int) {
     companion object {
-        val TYPE_LEFT = 0
-        val TYPE_RIGHT = 1
+        const val TYPE_LEFT = 0
+        const val TYPE_RIGHT = 1
     }
 }

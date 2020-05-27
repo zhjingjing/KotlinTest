@@ -2,12 +2,12 @@ package com.zh.kotlin.recycler
 
 import android.content.Context
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v7.widget.DividerItemDecoration
-import android.support.v7.widget.GridLayoutManager
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.StaggeredGridLayoutManager
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.zh.kotlin.R
 import com.zh.kotlin.utils.GirdItemDecoration
 import kotlinx.android.synthetic.main.activity_recycler.*
@@ -40,11 +40,17 @@ class RecyclerActivity : AppCompatActivity() {
         repeat(30) {
             list?.add(PositionData("$it"))
         }
-        val linearLayoutManager = LinearLayoutManager(this)
+        val linearLayoutManager =
+            androidx.recyclerview.widget.LinearLayoutManager(this)
         val positionAdapter = PositionAdapter(list!!)
         recycler_view.layoutManager = linearLayoutManager
         recycler_view.adapter = positionAdapter
-        recycler_view.addItemDecoration(DividerItemDecoration(this, LinearLayoutManager.VERTICAL))
+        recycler_view.addItemDecoration(
+            androidx.recyclerview.widget.DividerItemDecoration(
+                this,
+                androidx.recyclerview.widget.LinearLayoutManager.VERTICAL
+            )
+        )
     }
 
     private fun init2() {
@@ -52,7 +58,8 @@ class RecyclerActivity : AppCompatActivity() {
         repeat(5) {
             list?.add(PositionData("$it"))
         }
-        val gridLayoutManager = GridLayoutManager(this, 3)
+        val gridLayoutManager =
+            androidx.recyclerview.widget.GridLayoutManager(this, 3)
         val girdAdapter = GirdAdapter(list!!)
         recycler_view.layoutManager = gridLayoutManager
         recycler_view.addItemDecoration(GirdItemDecoration(resources.getDrawable(R.drawable.divider_grid)))
@@ -64,7 +71,10 @@ class RecyclerActivity : AppCompatActivity() {
         repeat(30) {
             list?.add(PositionData(getName(it)))
         }
-        val staManager = StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL)
+        val staManager = androidx.recyclerview.widget.StaggeredGridLayoutManager(
+            3,
+            androidx.recyclerview.widget.StaggeredGridLayoutManager.VERTICAL
+        )
         val girdAdapter = GirdAdapter(list!!)
         recycler_view.layoutManager = staManager
         recycler_view.adapter = girdAdapter

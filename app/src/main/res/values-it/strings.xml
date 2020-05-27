@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<string name="app_name">Kotlin</string>
+	<string name="title_activity_login">accedi</string>
+	<string name="prompt_email">e-mail</string>
+	<string name="prompt_password">password (opzionale)</string>
+	<string name="action_sign_in">accedi o registrati</string>
+	<string name="action_sign_in_short">accedi</string>
+	<string name="error_invalid_email">questo indirizzo email non è valido</string>
+	<string name="error_invalid_password">questa password è troppo corta</string>
+	<string name="error_incorrect_password">questa password non è corretta</string>
+	<string name="error_field_required">questo campo è obbligatorio</string>
+	<string name="permission_rationale">"Contatti autorizzazioni sono necessarie per la fornitura di completamenti e-mail."</string>
+
+</resources>

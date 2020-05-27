@@ -1,7 +1,7 @@
 package com.zh.kotlin.recycler.chat
 
 import android.content.Context
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,7 +12,7 @@ import com.zh.kotlin.R
  * create by zj on 2020/5/14
  */
 class ChatAdapter(private val context: Context, private val chatList: ArrayList<Message>) :
-    RecyclerView.Adapter<ChatAdapter.ViewHolder>() {
+    androidx.recyclerview.widget.RecyclerView.Adapter<ChatAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return if (viewType == Message.TYPE_LEFT) {
@@ -44,7 +44,7 @@ class ChatAdapter(private val context: Context, private val chatList: ArrayList<
         holder.textView.text = message.msg
     }
 
-    inner class ViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
+    inner class ViewHolder(private val view: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(view) {
         val textView: TextView = view.findViewById(R.id.tv_msg)
     }
 }
