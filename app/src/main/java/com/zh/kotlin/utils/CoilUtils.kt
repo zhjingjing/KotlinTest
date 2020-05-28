@@ -1,14 +1,8 @@
 package com.zh.kotlin.utils
 
 import android.content.Context
-import android.view.View
 import android.widget.ImageView
-import coil.Coil
-import coil.ImageLoader
 import coil.api.load
-import coil.request.GetRequest
-import coil.request.LoadRequest
-import coil.size.ViewSizeResolver
 import coil.transform.BlurTransformation
 import coil.transform.CircleCropTransformation
 import coil.transform.RoundedCornersTransformation
@@ -66,6 +60,7 @@ object CoilUtils {
             transformations(CircleCropTransformation())
         }
     }
+
 
     //高斯模糊
     fun loadBlurImg(
