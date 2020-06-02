@@ -6,28 +6,32 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
             android:allowBackup="true"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/app_name"
-            android:roundIcon="@mipmap/ic_launcher_round"
             android:networkSecurityConfig="@xml/network_security_config"
+            android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".imageload.ImageActivity"></activity>
-        <activity android:name=".fragment.FragmentActivity"></activity>
-        <activity android:name=".recycler.chat.ChatActivity"></activity>
-        <activity android:name=".recycler.RecyclerActivity"></activity>
+        <activity android:name=".imgsel.ImgSelActivity"></activity>
+        <activity android:name=".imageload.ImageActivity" />
+        <activity android:name=".fragment.FragmentActivity" />
+        <activity android:name=".recycler.chat.ChatActivity" />
+        <activity android:name=".recycler.RecyclerActivity" />
         <activity
                 android:name=".login.LoginActivity"
-                android:label="@string/title_activity_login"></activity>
+                android:label="@string/title_activity_login" />
         <activity
                 android:name=".launchmode.DialogActivity"
-                android:theme="@style/Theme.AppCompat.Dialog"></activity>
-        <activity android:name=".launchmode.SecondActivity"></activity>
-        <activity android:name=".launchmode.FirstActivity"></activity>
+                android:theme="@style/Theme.AppCompat.Dialog" />
+        <activity android:name=".launchmode.SecondActivity" />
+        <activity android:name=".launchmode.FirstActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -35,6 +39,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <provider
+                android:authorities="com.zh.kotlin.Provider"
+                android:name="androidx.core.content.FileProvider"
+                android:exported="false"
+                android:grantUriPermissions="true">
+            <meta-data
+                    android:resource="@xml/file_path"
+                    android:name="android.support.FILE_PROVIDER_PATHS"></meta-data>
+
+        </provider>
     </application>
 
 </manifest>

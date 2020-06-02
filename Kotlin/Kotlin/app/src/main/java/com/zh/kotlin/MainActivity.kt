@@ -2,11 +2,9 @@ package com.zh.kotlin
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import com.zh.kotlin.fragment.FragmentActivity
-import com.zh.kotlin.imageload.ImageActivity
-import com.zh.kotlin.imgsel.ImgSelActivity
 import com.zh.kotlin.recycler.chat.ChatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -24,9 +22,6 @@ class MainActivity : AppCompatActivity() {
         btn_fragment.setOnClickListener {
             FragmentActivity.launch(this)
         }
-
-        btn_img.setOnClickListener { ImageActivity.launch(this) }
-        btn_img_sel.setOnClickListener { ImgSelActivity.launch(this) }
 
         val list1 = listOf(1, 1, 1, null)
 

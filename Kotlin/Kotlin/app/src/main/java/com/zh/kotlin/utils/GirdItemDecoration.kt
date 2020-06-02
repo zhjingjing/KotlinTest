@@ -3,33 +3,26 @@ package com.zh.kotlin.utils
 import android.graphics.Canvas
 import android.graphics.Rect
 import android.graphics.drawable.Drawable
+import android.support.v7.widget.GridLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.view.View
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 
 /**
  * create by zj on 2020/5/14
  * GirdLayoutManager的分割线
  */
-class GirdItemDecoration(private val drawable: Drawable) :
-    RecyclerView.ItemDecoration() {
+class GirdItemDecoration(private val drawable: Drawable) : RecyclerView.ItemDecoration() {
 
-    override fun onDraw(
-        c: Canvas,
-        parent: RecyclerView,
-        state: RecyclerView.State
-    ) {
+    override fun onDraw(c: Canvas, parent: RecyclerView, state: RecyclerView.State) {
         if (parent.layoutManager !is GridLayoutManager) {
             return
         }
         val count = parent.childCount//获取子view个数
-        val spanCount =
-            (parent.layoutManager as GridLayoutManager).spanCount
-        val orientation =
-            (parent.layoutManager as GridLayoutManager).orientation
+        val spanCount = (parent.layoutManager as GridLayoutManager).spanCount
+        val orientation = (parent.layoutManager as GridLayoutManager).orientation
 
-        var isDrawHor = false
-        var isDrawVer = false
+        var isDrawHor: Boolean = false
+        var isDrawVer: Boolean = false
         var extra: Int = if (count % spanCount == 0) {
             spanCount
         } else {
@@ -63,17 +56,10 @@ class GirdItemDecoration(private val drawable: Drawable) :
         }
     }
 
-    override fun getItemOffsets(
-        outRect: Rect,
-        view: View,
-        parent: RecyclerView,
-        state: RecyclerView.State
-    ) {
+    override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
         if (parent.layoutManager is GridLayoutManager) {
-            val spanCount =
-                (parent.layoutManager as GridLayoutManager).spanCount
-            val orientation =
-                (parent.layoutManager as GridLayoutManager).orientation
+            val spanCount = (parent.layoutManager as GridLayoutManager).spanCount
+            val orientation = (parent.layoutManager as GridLayoutManager).orientation
             val pos = parent.getChildLayoutPosition(view)
 
             if (orientation == GridLayoutManager.VERTICAL && (pos + 1) % spanCount == 0) {
@@ -91,8 +77,7 @@ class GirdItemDecoration(private val drawable: Drawable) :
 
     private fun drawHor(c: Canvas, parent: RecyclerView, pos: Int) {
         val view = parent.getChildAt(pos)
-        val layoutParams =
-            view.layoutParams as RecyclerView.LayoutParams
+        val layoutParams = view.layoutParams as RecyclerView.LayoutParams
 
         val top = view.bottom + layoutParams.topMargin
         val bottom = top + drawable.intrinsicHeight
@@ -104,8 +89,7 @@ class GirdItemDecoration(private val drawable: Drawable) :
 
     private fun drawVer(c: Canvas, parent: RecyclerView, pos: Int) {
         val view = parent.getChildAt(pos)
-        val layoutParams =
-            view.layoutParams as RecyclerView.LayoutParams
+        val layoutParams = view.layoutParams as RecyclerView.LayoutParams
 
         val top = view.top - layoutParams.topMargin
         val bottom = view.bottom + layoutParams.bottomMargin + drawable.intrinsicHeight

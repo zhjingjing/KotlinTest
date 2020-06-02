@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<string name="app_name">科特林</string>
+	<string name="title_activity_login">登入</string>
+	<string name="prompt_email">電子郵件</string>
+	<string name="prompt_password">密碼（可選）</string>
+	<string name="action_sign_in">登入或註冊</string>
+	<string name="action_sign_in_short">登入</string>
+	<string name="error_invalid_email">此電子郵件地址無效</string>
+	<string name="error_invalid_password">此密碼太短</string>
+	<string name="error_incorrect_password">此密碼不正確</string>
+	<string name="error_field_required">這是必填欄</string>
+	<string name="permission_rationale">“需要聯繫的權限提供電子郵件的完成。”</string>
+
+</resources>
