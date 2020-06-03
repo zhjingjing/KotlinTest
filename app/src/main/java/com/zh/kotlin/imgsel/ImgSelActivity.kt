@@ -6,6 +6,8 @@ import android.app.ActivityManager
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.BitmapFactory
+import android.graphics.drawable.Drawable
 import android.media.MediaRecorder
 import android.net.Uri
 import android.os.Build
@@ -18,6 +20,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import com.zh.kotlin.R
+import com.zh.kotlin.utils.CoilUtils
 import kotlinx.android.synthetic.main.activity_img_sel.*
 import java.io.File
 import java.net.URI
@@ -34,6 +37,7 @@ class ImgSelActivity : AppCompatActivity() {
 
     private val code1001 = 1001
     private val code1002 = 1002
+    private val code1003 = 1003
     lateinit var file: File
     lateinit var uri: Uri
     private var arrayList =
@@ -60,6 +64,8 @@ class ImgSelActivity : AppCompatActivity() {
                     selAlbum()
                 }
             }
+
+
         }
         btn_take_photo.setOnClickListener {
             if (Build.VERSION.SDK_INT > Build.VERSION_CODES.M) {
@@ -130,9 +136,37 @@ class ImgSelActivity : AppCompatActivity() {
         if (resultCode == Activity.RESULT_OK) {
             when (requestCode) {
                 code1001 -> {
+                    val slesctedImage = data!!.data
+
+                    val filePathColumn = arrayOf(MediaStore.Images.Media.DATA)
+
+                    val cursor = contentResolver.query(
+                        slesctedImage,
+
+                        filePathColumn, null, null, null
+                    )
+
+                    cursor.moveToFirst()
+
+                    val columnIndex = cursor.getColumnIndex(filePathColumn[0])
+
+                    val picturePath = cursor.getString(columnIndex)
+
+                    cursor.close()
+
+                    iv_result.setImageDrawable(Drawable.createFromPath(picturePath))
 
                 }
                 code1002 -> {
+                    val imageUri = uri
+                    val bitmap =
+                        BitmapFactory.decodeStream(contentResolver.openInputStream(imageUri))
+
+                    iv_result.setImageBitmap(bitmap)
+                }
+                code1003 -> {
+                    val imageUri = uri
+
 
                 }
             }
