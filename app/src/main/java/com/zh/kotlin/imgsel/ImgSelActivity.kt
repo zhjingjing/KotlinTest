@@ -15,10 +15,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
+import android.util.Log
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
+import coil.Coil
+import coil.api.load
 import com.zh.kotlin.R
 import com.zh.kotlin.utils.CoilUtils
 import kotlinx.android.synthetic.main.activity_img_sel.*
@@ -153,16 +156,13 @@ class ImgSelActivity : AppCompatActivity() {
                     val picturePath = cursor.getString(columnIndex)
 
                     cursor.close()
-
-                    iv_result.setImageDrawable(Drawable.createFromPath(picturePath))
+                    Log.e("xxx", picturePath)
+                    iv_result.load(Drawable.createFromPath(picturePath))
 
                 }
                 code1002 -> {
                     val imageUri = uri
-                    val bitmap =
-                        BitmapFactory.decodeStream(contentResolver.openInputStream(imageUri))
-
-                    iv_result.setImageBitmap(bitmap)
+                    iv_result.load(uri)
                 }
                 code1003 -> {
                     val imageUri = uri
