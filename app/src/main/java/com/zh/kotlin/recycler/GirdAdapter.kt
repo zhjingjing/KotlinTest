@@ -12,9 +12,10 @@ import com.zh.kotlin.R
  * create by zj on 2020/5/14
  *
  */
-class GirdAdapter(private val list: ArrayList<PositionData>) : androidx.recyclerview.widget.RecyclerView.Adapter<GirdAdapter.GirdHolder>() {
+class GirdAdapter(private val list: ArrayList<PositionData>) : RecyclerView.Adapter<GirdAdapter.GirdHolder>() {
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): GirdHolder {
-        val view: View = LayoutInflater.from(p0.context).inflate(R.layout.item_user_grid_values, p0, false)
+        val view: View =
+            LayoutInflater.from(p0.context).inflate(R.layout.item_user_grid_values, p0, false)
         return GirdHolder(view)
     }
 
@@ -28,7 +29,7 @@ class GirdAdapter(private val list: ArrayList<PositionData>) : androidx.recycler
         p0.avatar.setImageResource(data.imgId)
     }
 
-    inner class GirdHolder(view: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(view) {
+    inner class GirdHolder(view: View) : RecyclerView.ViewHolder(view) {
         val name: TextView = view.findViewById(R.id.item_tv_name)
         val avatar: ImageView = view.findViewById(R.id.item_iv_avatar)
     }

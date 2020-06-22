@@ -25,10 +25,10 @@ import coil.api.load
 import com.zh.kotlin.R
 import com.zh.kotlin.utils.CoilUtils
 import kotlinx.android.synthetic.main.activity_img_sel.*
+import kotlinx.coroutines.FlowPreview
 import java.io.File
 import java.net.URI
 import java.security.Provider
-
 class ImgSelActivity : AppCompatActivity() {
 
     companion object {
@@ -157,15 +157,14 @@ class ImgSelActivity : AppCompatActivity() {
 
                     cursor.close()
                     Log.e("xxx", picturePath)
-                    iv_result.load(Drawable.createFromPath(picturePath))
+                    iv_result.load(File(picturePath))
 
                 }
+
                 code1002 -> {
-                    val imageUri = uri
                     iv_result.load(uri)
                 }
                 code1003 -> {
-                    val imageUri = uri
 
 
                 }
