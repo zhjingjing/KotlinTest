@@ -28,6 +28,8 @@ class MainActivity : AppCompatActivity() {
         btn_img.setOnClickListener { ImageActivity.launch(this) }
         btn_img_sel.setOnClickListener { ImgSelActivity.launch(this) }
 
+        var test1 = listOf("xx", "xxx");
+
         val list1 = listOf(1, 1, 1, null)
 
         for (i in list1) {
