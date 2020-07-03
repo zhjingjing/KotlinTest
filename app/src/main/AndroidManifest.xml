@@ -19,11 +19,22 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".imgsel.ImgSelActivity"></activity>
+        <activity android:name=".test.TestActivity">
+
+        </activity>
+        <activity android:name=".imgsel.ImgSelActivity" />
         <activity android:name=".imageload.ImageActivity" />
-        <activity android:name=".fragment.FragmentActivity" />
+        <activity android:name=".fragment.FragmentActivity">
+
+        </activity>
         <activity android:name=".recycler.chat.ChatActivity" />
-        <activity android:name=".recycler.RecyclerActivity" />
+        <activity android:name=".recycler.RecyclerActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
                 android:name=".login.LoginActivity"
                 android:label="@string/title_activity_login" />
@@ -33,22 +44,17 @@
         <activity android:name=".launchmode.SecondActivity" />
         <activity android:name=".launchmode.FirstActivity" />
         <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <provider
-                android:authorities="com.zh.kotlin.Provider"
                 android:name="androidx.core.content.FileProvider"
+                android:authorities="com.zh.kotlin.Provider"
                 android:exported="false"
                 android:grantUriPermissions="true">
             <meta-data
-                    android:resource="@xml/file_path"
-                    android:name="android.support.FILE_PROVIDER_PATHS"></meta-data>
-
+                    android:name="android.support.FILE_PROVIDER_PATHS"
+                    android:resource="@xml/file_path" />
         </provider>
     </application>
 

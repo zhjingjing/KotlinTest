@@ -41,14 +41,15 @@ class RecyclerActivity : AppCompatActivity() {
             list?.add(PositionData("$it"))
         }
         val linearLayoutManager =
-            androidx.recyclerview.widget.LinearLayoutManager(this)
-        val positionAdapter = PositionAdapter(list!!)
+            LinearLayoutManager(this)
+        val positionAdapter = PositionAdapter()
+        positionAdapter.updateList(list!!)
         recycler_view.layoutManager = linearLayoutManager
         recycler_view.adapter = positionAdapter
         recycler_view.addItemDecoration(
-            androidx.recyclerview.widget.DividerItemDecoration(
+            DividerItemDecoration(
                 this,
-                androidx.recyclerview.widget.LinearLayoutManager.VERTICAL
+                LinearLayoutManager.VERTICAL
             )
         )
     }
@@ -59,8 +60,9 @@ class RecyclerActivity : AppCompatActivity() {
             list?.add(PositionData("$it"))
         }
         val gridLayoutManager =
-            androidx.recyclerview.widget.GridLayoutManager(this, 3)
-        val girdAdapter = GirdAdapter(list!!)
+            GridLayoutManager(this, 3)
+        val girdAdapter = GirdAdapter()
+        girdAdapter.updateList(list!!)
         recycler_view.layoutManager = gridLayoutManager
         recycler_view.addItemDecoration(GirdItemDecoration(resources.getDrawable(R.drawable.divider_grid)))
         recycler_view.adapter = girdAdapter
@@ -71,11 +73,12 @@ class RecyclerActivity : AppCompatActivity() {
         repeat(30) {
             list?.add(PositionData(getName(it)))
         }
-        val staManager = androidx.recyclerview.widget.StaggeredGridLayoutManager(
+        val staManager = StaggeredGridLayoutManager(
             3,
-            androidx.recyclerview.widget.StaggeredGridLayoutManager.VERTICAL
+            StaggeredGridLayoutManager.VERTICAL
         )
-        val girdAdapter = GirdAdapter(list!!)
+        val girdAdapter = GirdAdapter()
+        girdAdapter.updateList(list!!)
         recycler_view.layoutManager = staManager
         recycler_view.adapter = girdAdapter
     }

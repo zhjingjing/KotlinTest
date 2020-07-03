@@ -1,19 +1,16 @@
 package com.zh.kotlin.fragment
 
-import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
+import com.zh.baselib.base.BaseFragment
 import com.zh.kotlin.R
 
 /**
  * create by zj on 2020/5/15
  */
-class HomeFragment : androidx.fragment.app.Fragment() {
+class HomeFragment : BaseFragment() {
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-
-        return layoutInflater.inflate(R.layout.fragment_home, container, false)
+    override fun getLayoutId(): View? {
+        return layoutInflater.inflate(R.layout.fragment_home, null, false)
     }
+
 }
