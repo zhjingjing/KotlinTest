@@ -2,27 +2,25 @@ package com.zh.kotlin.fragment
 
 import android.content.Context
 import android.content.Intent
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import com.zh.baselib.base.BaseActivity
 import com.zh.kotlin.R
 import kotlinx.android.synthetic.main.activity_fragment.*
 
-class FragmentActivity : AppCompatActivity() {
+class HomeActivity : BaseActivity() {
 
     companion object {
         fun launch(context: Context) {
-            context.startActivity(Intent(context, FragmentActivity::class.java))
+            context.startActivity(Intent(context, HomeActivity::class.java))
         }
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_fragment)
-        initListener()
+    override fun getLayoutId(): Int = R.layout.activity_fragment
+
+    override fun initData() {
         changeTab(0)
     }
 
-    private fun initListener() {
+    override fun initListener() {
         tab_home.setOnClickListener {
             changeTab(0)
         }
@@ -38,6 +36,17 @@ class FragmentActivity : AppCompatActivity() {
             changeTab(3)
 
         }
+    }
+
+
+    override fun onError(msg: String) {
+        myToast(msg)
+    }
+
+    override fun dismissLoading() {
+    }
+
+    override fun showLoading() {
     }
 
     private fun changeTab(pos: Int) {
@@ -59,10 +68,14 @@ class FragmentActivity : AppCompatActivity() {
         }
 
         when (pos) {
-            0 -> supportFragmentManager.beginTransaction().replace(R.id.fragment_container, HomeFragment()).commit()
-            1 -> supportFragmentManager.beginTransaction().replace(R.id.fragment_container, FateFragment()).commit()
-            2 -> supportFragmentManager.beginTransaction().replace(R.id.fragment_container, ChatFragment()).commit()
-            3 -> supportFragmentManager.beginTransaction().replace(R.id.fragment_container, MeFragment()).commit()
+            0 -> supportFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, HomeFragment()).commit()
+            1 -> supportFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, FateFragment()).commit()
+            2 -> supportFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, ChatFragment()).commit()
+            3 -> supportFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, MeFragment()).commit()
         }
     }
 

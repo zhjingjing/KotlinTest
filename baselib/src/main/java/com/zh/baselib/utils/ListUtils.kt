@@ -1,4 +1,4 @@
-package com.zh.kotlin.utils
+package com.zh.baselib.utils
 
 /**
  * create by zj on 2020/6/22

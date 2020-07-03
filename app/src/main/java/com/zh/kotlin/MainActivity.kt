@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import android.util.Log
-import com.zh.kotlin.fragment.FragmentActivity
+import com.zh.kotlin.fragment.HomeActivity
 import com.zh.kotlin.imageload.ImageActivity
 import com.zh.kotlin.imgsel.ImgSelActivity
 import com.zh.kotlin.recycler.chat.ChatActivity
@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         btn_fragment.setOnClickListener {
-            FragmentActivity.launch(this)
+            HomeActivity.launch(this)
         }
 
         btn_img.setOnClickListener { ImageActivity.launch(this) }

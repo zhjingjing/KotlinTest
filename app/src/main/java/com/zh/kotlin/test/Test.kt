@@ -1,6 +1,6 @@
 package com.zh.kotlin.test
 
-import com.zh.kotlin.utils.findMax
+import com.zh.baselib.utils.findMax
 
 /**
  * create by zj on 2020/6/22
