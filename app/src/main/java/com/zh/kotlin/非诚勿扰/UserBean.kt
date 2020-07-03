@@ -58,4 +58,13 @@ fun main() {
         it.name
     }
     println(list3)
+
+
+    UserDao.ageMall(15)
+}
+
+fun List<UserBean>.ageMall(age: Int) {
+    filter {
+        it.age < age
+    }.forEach(::println)
 }
