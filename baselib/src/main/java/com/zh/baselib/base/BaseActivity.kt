@@ -1,8 +1,9 @@
 package com.zh.baselib.base
 
+import android.graphics.Color
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.zh.baselib.utils.shortToast
+import com.zh.baselib.ext.*
 
 /**
  * create by zj on 2020/7/3
@@ -12,6 +13,9 @@ abstract class BaseActivity : AppCompatActivity(), BaseView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(getLayoutId())
+        immersiveSystemUi(false)
+        setStatusBarColor(Color.BLUE)
+        setNavigationBarColor(Color.BLUE)
         initListener()
         initData()
     }

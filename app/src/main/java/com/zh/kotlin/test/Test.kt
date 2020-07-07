@@ -12,5 +12,8 @@ fun main() {
     val result2 = list.findMax { it.length }
     println(result)
     println(result2)
+    println("1/0=" + 1.0 / 0)
+    println("1/0=" + 0.0f / 0)
 }
+
 
